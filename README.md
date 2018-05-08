@@ -1,7 +1,7 @@
 # Rengorum
 Single-page forum application that aims to be fast, performant and simple.
 
-## Demo: https://rengorum.herokuapp.com/
+## Demo: https://forum.endiliey.com/
 ![Screenshot 1](preview/frontend_1.PNG)
 
 ## Frontend
