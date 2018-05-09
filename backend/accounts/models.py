@@ -37,7 +37,7 @@ def create_superuser_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(
             user=instance,
             bio='I am the admin and I manage this website',
-            avatar='http://res.cloudinary.com/rengorum/image/upload/v1525768360/admin.png',
+            avatar='https://res.cloudinary.com/rengorum/image/upload/v1525768360/admin.png',
             name='Administrator',
             status='Administrator'
         )

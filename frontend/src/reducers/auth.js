@@ -18,6 +18,8 @@ const loginInitialState = {
   avatar: null,
   token: null,
   isStaff: false,
+  bio: null,
+  status: null,
   error: null
 };
 
@@ -50,6 +52,8 @@ const auth = (state = initialState, action) => {
         username: action.username,
         avatar: action.avatar,
         name: action.name,
+        bio: action.bio,
+        status: action.status,
         isStaff: action.isStaff,
         error: null
       };
@@ -73,7 +77,9 @@ const auth = (state = initialState, action) => {
         editError: null,
         editSuccess: true,
         avatar: action.avatar || state.avatar,
-        name: action.name || state.name
+        name: action.name,
+        bio: action.bio,
+        status: action.status
       };
     case EDIT_PROFILE_FAILURE:
       return {

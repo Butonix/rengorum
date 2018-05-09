@@ -43,6 +43,7 @@ class ForumContainer extends Component {
       createThreadSave,
       createThreadToggle
     } = this.props;
+    const { forum } = this.props.match.params;
     return (
       <div>
         <NewThread
@@ -67,6 +68,7 @@ class ForumContainer extends Component {
           description={description}
           threads={threads}
           error={error}
+          forum={forum}
         />
       </div>
     );

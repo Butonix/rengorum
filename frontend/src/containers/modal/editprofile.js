@@ -22,6 +22,8 @@ class EditProfileModal extends Component {
       error,
       avatar,
       name,
+      bio,
+      status,
       editProfile,
       handleClose,
       success
@@ -39,6 +41,8 @@ class EditProfileModal extends Component {
           isLoading={isEditing}
           error={error}
           success={success}
+          bio={bio}
+          status={status}
         />
       </Modal>
     );
@@ -51,6 +55,8 @@ const mapStateToProps = state => ({
   error: state.auth.editError,
   avatar: state.auth.avatar,
   name: state.auth.name,
+  bio: state.auth.bio,
+  status: state.auth.status,
   success: state.auth.editSuccess
 });
 

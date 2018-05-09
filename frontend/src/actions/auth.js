@@ -48,6 +48,8 @@ export const loginSuccess = (data) => {
     username: data.username,
     name: data.name,
     avatar: data.avatar,
+    bio: data.bio,
+    status: data.status,
     isStaff: data.is_staff
   };
 };
@@ -101,6 +103,8 @@ export const editProfileSuccess = (newProfile) => {
     type: EDIT_PROFILE_SUCCESS,
     avatar: newProfile.avatar,
     name: newProfile.name,
+    bio: newProfile.bio,
+    status: newProfile.status
   };
 };
 
