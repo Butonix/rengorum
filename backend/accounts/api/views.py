@@ -70,6 +70,8 @@ class UserLoginAPIView(views.APIView):
                 'username': user.username,
                 'name': user.profile.name,
                 'avatar': user.profile.avatar,
+                'bio': user.profile.bio,
+                'status': user.profile.status,
                 'is_staff': user.is_staff
             }, status=HTTP_200_OK)
 

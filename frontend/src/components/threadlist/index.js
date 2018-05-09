@@ -14,7 +14,7 @@ export default class ThreadList extends Component {
     const {
       isLoading,
       error,
-      name,
+      forum,
       threads
     } = this.props;
 
@@ -25,7 +25,7 @@ export default class ThreadList extends Component {
           errorClassName='forum-error'
           errorMessage={error}
           loading={isLoading}
-          loadingMessage={`We are fetching threads in '${name}' forum for you`}
+          loadingMessage={`We are fetching threads in '${forum}' for you`}
           nothing={threads && threads.length === 0}
           nothingMessage={`No threads to display`}
           nothingClassName='forum-error'
