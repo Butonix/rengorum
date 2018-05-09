@@ -19,15 +19,17 @@ export default class EditProfile extends Component {
     super(props);
     const {
       name,
-      avatar
+      avatar,
+      bio,
+      status
     } = this.props;
 
     this.state = {
       name: name,
       newPassword: '',
       currentPassword: '',
-      bio: '',
-      status: '',
+      bio: bio || '',
+      status: status || '',
       avatar: avatar,
       avatarFile: null,
       avatarError: null,
@@ -55,20 +57,27 @@ export default class EditProfile extends Component {
       status: this.state.status
     };
     this.props.handleEdit(newProfile);
+  }
 
-    // prevent spamming so user have to keep entering password for every edit submission
-    this.setState({
-      currentPassword: ''
-    });
+  isFormValid = () => {
+    const {
+      name,
+      currentPassword,
+      bio,
+      status
+    } = this.state;
+
+    let isFormValid = true;
+    if (!name || !currentPassword || !bio || !status) {
+      isFormValid = false;
+    }
+    return isFormValid;
   }
 
   handleSubmit = () => {
-    const {
-      currentPassword,
-      avatarFile
-    } = this.state;
+    const { avatarFile } = this.state;
 
-    if (currentPassword !== '') {
+    if (this.isFormValid()) {
       if (!avatarFile) { // no new avatar
         this.editProfile();
       } else {
@@ -152,6 +161,7 @@ export default class EditProfile extends Component {
                 </Dropzone>
               </Form.Field>
               <Form.Input
+                required
                 label='Bio'
                 placeholder='Describe yourself'
                 type='text'
@@ -163,6 +173,7 @@ export default class EditProfile extends Component {
             </Grid.Column>
             <Grid.Column>
               <Form.Input
+                required
                 label='Name'
                 placeholder='Name'
                 type='text'
@@ -186,6 +197,7 @@ export default class EditProfile extends Component {
                 onChange={ this.handleChange }
               />
               <Form.Input
+                required
                 label='Status'
                 placeholder='Who are you (e.g: Writer)'
                 type='text'

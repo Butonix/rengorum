@@ -41,8 +41,8 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'create_user': '3/hour',
         'create_post': '3/min',
-        'create_thread': '3/hour',
-        'edit_user': '3/min',
+        'create_thread': '5/hour',
+        'edit_user': '5/min',
         'login': '5/min',
         'anon': '60/min',
         'user': '120/min'
