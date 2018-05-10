@@ -1,5 +1,5 @@
 # Rengorum
-Single-page forum application that aims to be fast, performant and simple.
+Single-page forum application that aims to be clean and simple.
 
 ## Demo: https://forum.endiliey.com/
 ![Screenshot 1](preview/frontend_1.PNG)
@@ -20,12 +20,12 @@ Single-page forum application that aims to be fast, performant and simple.
 ![Screenshot 5](preview/frontend_5.PNG)
 
 ## Backend
-> The backend is a scalable system that provides data through its RESTful API (browseable API available), written in Python and built with following technologies:
+> The backend provides data through its RESTful API (browseable API available), written in Python and built with following technologies:
 > * [Django v2.0](https://www.djangoproject.com/)
 > * [Djangorestframework v3.7](http://www.django-rest-framework.org/)
 > * [etc](https://github.com/endiliey/rengorum/blob/master/requirements.txt)
 
-## API endpoint for Demo: https://rengorum.endiliey.com/api
+## API endpoint for Demo using PostgreSQL: https://rengorum.endiliey.com/api
 ```
 List of available API (browseable) at /api
 * /user/
