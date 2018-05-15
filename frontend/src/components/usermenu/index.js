@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import GuestNav from './guestnav';
-import UserNav from './usernav';
+import React, { Component } from "react";
+import GuestNav from "./guestnav";
+import UserNav from "./usernav";
 
 class UserMenu extends Component {
   render() {
@@ -28,12 +28,7 @@ class UserMenu extends Component {
         />
       );
     } else {
-      return (
-        <GuestNav
-          showRegister={showRegister}
-          showLogin={showLogin}
-        />
-      );
+      return <GuestNav showRegister={showRegister} showLogin={showLogin} />;
     }
   }
 }

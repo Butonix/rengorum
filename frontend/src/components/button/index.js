@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Loader from '../loader';
-import './styles.css';
+import React, { Component } from "react";
+import Loader from "../loader";
+import "./styles.css";
 
 export default class Button extends Component {
   render() {
@@ -16,7 +16,11 @@ export default class Button extends Component {
         className={className}
         disabled={disabled}
         onClick={this.props.onClick}
-        type={this.props.type ? this.props.type : (this.props.onClick ? 'button' : 'submit')}
+        type={
+          this.props.type
+            ? this.props.type
+            : this.props.onClick ? "button" : "submit"
+        }
       >
         {this.props.loading ? <Loader /> : this.props.children}
       </button>

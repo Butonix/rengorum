@@ -2,7 +2,7 @@ import {
   FETCH_HOME_REQUEST,
   FETCH_HOME_SUCCESS,
   FETCH_HOME_FAILURE
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const home = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_HOME_REQUEST:
       return {
         ...state,

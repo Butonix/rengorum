@@ -3,7 +3,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_RESET
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const register = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case REGISTER_REQUEST:
       return {
         ...state,
@@ -33,6 +33,6 @@ const register = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default register;

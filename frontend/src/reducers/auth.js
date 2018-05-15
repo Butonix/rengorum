@@ -8,7 +8,7 @@ import {
   EDIT_PROFILE_FAILURE,
   EDIT_PROFILE_RESET,
   LOGOUT
-} from '../actions/types';
+} from "../actions/types";
 
 const loginInitialState = {
   isLoading: false,
@@ -35,7 +35,7 @@ const initialState = {
 };
 
 const auth = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case LOGIN_REQUEST:
       return {
         ...state,

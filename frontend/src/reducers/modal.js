@@ -1,7 +1,4 @@
-import {
-  SHOW_MODAL,
-  HIDE_MODAL
-} from '../actions/types';
+import { SHOW_MODAL, HIDE_MODAL } from "../actions/types";
 
 const initialState = {
   modalType: null,
@@ -23,6 +20,6 @@ const modal = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default modal;

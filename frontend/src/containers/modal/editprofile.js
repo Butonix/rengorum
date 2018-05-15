@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import EditProfile from '../../components/editprofile';
-import Modal from '../../components/modal';
-import {
-  hideModal,
-  editProfileReset,
-  editProfile
-} from '../../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import EditProfile from "../../components/editprofile";
+import Modal from "../../components/modal";
+import { hideModal, editProfileReset, editProfile } from "../../actions";
 
 class EditProfileModal extends Component {
   componentWillMount() {
@@ -30,10 +26,7 @@ class EditProfileModal extends Component {
     } = this.props;
 
     return !isAuthenticated ? null : (
-      <Modal
-        onClose={handleClose}
-        dialogStyle={{ minWidth: '500px'}}
-      >
+      <Modal onClose={handleClose} dialogStyle={{ minWidth: "500px" }}>
         <EditProfile
           avatar={avatar}
           name={name}
@@ -60,8 +53,8 @@ const mapStateToProps = state => ({
   success: state.auth.editSuccess
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  editProfile: (newProfile) => {
+const mapDispatchToProps = dispatch => ({
+  editProfile: newProfile => {
     dispatch(editProfile(newProfile));
   },
   handleClose: () => {
@@ -70,7 +63,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(EditProfileModal);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileModal);

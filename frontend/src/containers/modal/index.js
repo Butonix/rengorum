@@ -1,23 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import RegisterModal from './register';
-import LoginModal from './login';
-import EditProfileModal from './editprofile';
+import React from "react";
+import { connect } from "react-redux";
+import RegisterModal from "./register";
+import LoginModal from "./login";
+import EditProfileModal from "./editprofile";
 
-const ModalContainer = (props) => {
+const ModalContainer = props => {
   switch (props.modalType) {
-    case 'REGISTER':
-      return (
-        <RegisterModal />
-      );
-    case 'LOGIN':
-      return (
-        <LoginModal />
-      );
-    case 'EDIT_PROFILE':
-      return (
-        <EditProfileModal />
-      );
+    case "REGISTER":
+      return <RegisterModal />;
+    case "LOGIN":
+      return <LoginModal />;
+    case "EDIT_PROFILE":
+      return <EditProfileModal />;
     default:
       return null;
   }

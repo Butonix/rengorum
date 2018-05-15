@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {
-  fetchUserProfile
-} from '../../actions';
-import StatusMessage from '../../components/statusmessage';
-import Profile from '../../components/profile';
-import './styles.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchUserProfile } from "../../actions";
+import StatusMessage from "../../components/statusmessage";
+import Profile from "../../components/profile";
+import "./styles.css";
 
 class UserProfileContainer extends Component {
   componentDidMount() {
@@ -22,21 +20,17 @@ class UserProfileContainer extends Component {
   }
 
   render() {
-    const {
-      isLoading,
-      error,
-      profile
-    } = this.props;
+    const { isLoading, error, profile } = this.props;
 
     if (error || !profile || isLoading) {
       return (
         <StatusMessage
           error={error || !profile}
-          errorClassName='userProfile-error'
+          errorClassName="userProfile-error"
           errorMessage={error}
           loading={isLoading}
           loadingMessage={`We are fetching the user profile for you`}
-          type='default'
+          type="default"
         />
       );
     }
@@ -65,19 +59,18 @@ class UserProfileContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isLoading: state.userProfile.isLoading,
   profile: state.userProfile.profile,
   error: state.userProfile.error
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchUserProfile: (username) => {
+const mapDispatchToProps = dispatch => ({
+  fetchUserProfile: username => {
     dispatch(fetchUserProfile(username));
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserProfileContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  UserProfileContainer
+);

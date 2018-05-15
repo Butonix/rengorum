@@ -8,7 +8,7 @@ import {
   CREATE_THREAD_SAVE,
   CREATE_THREAD_TOGGLE,
   LOGOUT
-} from '../actions/types';
+} from "../actions/types";
 
 const forumInitialState = {
   isLoading: false,
@@ -22,8 +22,8 @@ const forumInitialState = {
 const newThreadInitialState = {
   newThreadLoading: false,
   newThreadSuccess: false,
-  newThreadName: '',
-  newThreadContent: '',
+  newThreadName: "",
+  newThreadContent: "",
   newThreadId: null,
   newThreadError: null,
   newThreadShow: false
@@ -35,7 +35,7 @@ const initialState = {
 };
 
 const forum = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_FORUM_REQUEST:
       return {
         ...state,
@@ -77,8 +77,8 @@ const forum = (state = initialState, action) => {
         ...state,
         newThreadLoading: false,
         newThreadSuccess: true,
-        newThreadName: '',
-        newThreadContent: '',
+        newThreadName: "",
+        newThreadContent: "",
         newThreadId: action.newThread.id,
         newThreadShow: false,
         newThreadError: null

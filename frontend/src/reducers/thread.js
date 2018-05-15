@@ -11,7 +11,7 @@ import {
   DELETE_THREAD_REQUEST,
   DELETE_THREAD_SUCCESS,
   DELETE_THREAD_FAILURE
-} from '../actions/types';
+} from "../actions/types";
 
 const threadInitialState = {
   isLoading: false,
@@ -47,7 +47,7 @@ const initialState = {
 };
 
 const thread = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_THREAD_REQUEST:
       return {
         ...initialState,
@@ -89,7 +89,7 @@ const thread = (state = initialState, action) => {
         ...state,
         isDeleting: false,
         deleteError: action.error
-      }
+      };
     case CREATE_POST_REQUEST:
       return {
         ...state,
@@ -121,7 +121,7 @@ const thread = (state = initialState, action) => {
       return {
         ...state,
         deletePostList: state.deletePostList.filter(id => id !== action.id)
-      }
+      };
     default:
       return state;
   }

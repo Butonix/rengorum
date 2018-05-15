@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Message, Image } from 'semantic-ui-react';
-import './styles.css';
+import React, { Component } from "react";
+import { Message, Image } from "semantic-ui-react";
+import "./styles.css";
 
 class NotFoundPage extends Component {
   render() {

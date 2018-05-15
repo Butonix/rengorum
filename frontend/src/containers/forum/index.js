@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   createThreadSave,
   createThreadToggle,
   fetchForum,
   createThread
-} from '../../actions';
-import ThreadList from '../../components/threadlist';
-import NewThread from '../../components/newthread';
+} from "../../actions";
+import ThreadList from "../../components/threadlist";
+import NewThread from "../../components/newthread";
 
 class ForumContainer extends Component {
   componentDidMount() {
@@ -75,7 +75,7 @@ class ForumContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isLoading: state.forum.isLoading,
   name: state.forum.name,
   slug: state.forum.slug,
@@ -92,14 +92,14 @@ const mapStateToProps = (state) => ({
   newThreadShow: state.forum.newThreadShow
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchForum: (forum) => {
+const mapDispatchToProps = dispatch => ({
+  fetchForum: forum => {
     dispatch(fetchForum(forum));
   },
-  createThread: (newThread) => {
+  createThread: newThread => {
     dispatch(createThread(newThread));
   },
-  createThreadSave: (newThread) => {
+  createThreadSave: newThread => {
     dispatch(createThreadSave(newThread));
   },
   createThreadToggle: () => {
@@ -107,7 +107,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ForumContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ForumContainer);

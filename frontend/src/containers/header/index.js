@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Navlink from '../../components/navlink';
-import UserMenu from '../../components/usermenu';
-import './styles.css';
-import {
-  showModal,
-  logout
-} from '../../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Navlink from "../../components/navlink";
+import UserMenu from "../../components/usermenu";
+import "./styles.css";
+import { showModal, logout } from "../../actions";
 
 class HeaderContainer extends Component {
   render() {
@@ -54,17 +51,14 @@ const mapDispatchToProps = dispatch => ({
     dispatch(logout());
   },
   showRegister: () => {
-    dispatch(showModal('REGISTER', {}));
+    dispatch(showModal("REGISTER", {}));
   },
   showLogin: () => {
-    dispatch(showModal('LOGIN', {}));
+    dispatch(showModal("LOGIN", {}));
   },
   showEditProfile: () => {
-    dispatch(showModal('EDIT_PROFILE', {}));
-  },
+    dispatch(showModal("EDIT_PROFILE", {}));
+  }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HeaderContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

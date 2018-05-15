@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Avatar from '../avatar';
-import './styles.css';
+import React, { Component } from "react";
+import Avatar from "../avatar";
+import "./styles.css";
 
 class Profile extends Component {
   formatDateTime(datetime) {
@@ -21,31 +21,25 @@ class Profile extends Component {
     return (
       <div className="profileContainer">
         <div>
-          <Avatar
-            className="profileAvatar"
-            avatar={avatar}
-            centered={false}
-          />
+          <Avatar className="profileAvatar" avatar={avatar} centered={false} />
         </div>
         <div className="profileInfo">
-          <div className="name">{ name }</div>
+          <div className="name">{name}</div>
           <div className="username">
             <strong>@{username}</strong>
-            <a className="staffStatus">
-              {isStaff ? ' (Staff) ' : ''}
-            </a>
+            <a className="staffStatus">{isStaff ? " (Staff) " : ""}</a>
           </div>
           <div className="status">
             <strong>Status: </strong>
-            { status }
+            {status}
           </div>
           <div className="dateJoined">
             <strong>Joined: </strong>
-            { dateJoined }
+            {dateJoined}
           </div>
           <div className="bio">
             <strong>Bio: </strong>
-            { bio }
+            {bio}
           </div>
         </div>
       </div>

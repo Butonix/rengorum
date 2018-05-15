@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Register from '../../components/register';
-import Modal from '../../components/modal';
-import {
-  hideModal,
-  registerReset,
-  showModal,
-  register
-} from '../../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Register from "../../components/register";
+import Modal from "../../components/modal";
+import { hideModal, registerReset, showModal, register } from "../../actions";
 
 class RegisterModal extends Component {
   componentWillMount() {
@@ -27,9 +22,7 @@ class RegisterModal extends Component {
     } = this.props;
 
     return isAuthenticated ? null : (
-      <Modal
-        onClose={handleClose}
-      >
+      <Modal onClose={handleClose}>
         <Register
           handleRegister={handleRegister}
           showLogin={showLogin}
@@ -47,8 +40,8 @@ const mapStateToProps = state => ({
   isLoading: state.register.isLoading
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleRegister: (data) => {
+const mapDispatchToProps = dispatch => ({
+  handleRegister: data => {
     dispatch(register(data));
   },
   handleClose: () => {
@@ -56,12 +49,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(registerReset());
   },
   showLogin: () => {
-    dispatch(showModal('LOGIN', {}));
+    dispatch(showModal("LOGIN", {}));
     dispatch(registerReset());
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RegisterModal);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterModal);

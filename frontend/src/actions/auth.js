@@ -8,32 +8,25 @@ import {
   EDIT_PROFILE_FAILURE,
   EDIT_PROFILE_RESET,
   LOGOUT
-} from './types';
-import {
-  loginApi,
-  logoutApi,
-  editProfileApi
-} from '../api';
-import store from '../store';
-import {
-  hideModal
-} from './modal';
-import { apiErrorHandler } from '../utils/errorhandler';
+} from "./types";
+import { loginApi, logoutApi, editProfileApi } from "../api";
+import store from "../store";
+import { hideModal } from "./modal";
+import { apiErrorHandler } from "../utils/errorhandler";
 
-export const login = (username, password) => (dispatch) => {
+export const login = (username, password) => dispatch => {
   dispatch(loginRequest());
 
   loginApi(username, password)
-  .then(response => {
-    dispatch(loginSuccess(response.data));
-    dispatch(hideModal());
-  })
-  .catch(error => {
-    const errorMessage = apiErrorHandler(error);
-    dispatch(loginFailure(errorMessage));
-  });
+    .then(response => {
+      dispatch(loginSuccess(response.data));
+      dispatch(hideModal());
+    })
+    .catch(error => {
+      const errorMessage = apiErrorHandler(error);
+      dispatch(loginFailure(errorMessage));
+    });
 };
-
 
 export const loginRequest = () => {
   return {
@@ -41,7 +34,7 @@ export const loginRequest = () => {
   };
 };
 
-export const loginSuccess = (data) => {
+export const loginSuccess = data => {
   return {
     type: LOGIN_SUCCESS,
     token: data.token,
@@ -54,7 +47,7 @@ export const loginSuccess = (data) => {
   };
 };
 
-export const loginFailure = (error) => {
+export const loginFailure = error => {
   return {
     type: LOGIN_FAILURE,
     error
@@ -79,16 +72,16 @@ export const editProfile = newProfile => dispatch => {
 
   const username = store.getState().auth.username;
   if (!username) {
-    dispatch(editProfileFailure('Not authenticated'));
+    dispatch(editProfileFailure("Not authenticated"));
   } else {
     editProfileApi(username, newProfile)
-    .then(response => {
-      dispatch(editProfileSuccess(newProfile));
-    })
-    .catch(error => {
-      const errorMessage = apiErrorHandler(error);
-      dispatch(editProfileFailure(errorMessage));
-    });
+      .then(response => {
+        dispatch(editProfileSuccess(newProfile));
+      })
+      .catch(error => {
+        const errorMessage = apiErrorHandler(error);
+        dispatch(editProfileFailure(errorMessage));
+      });
   }
 };
 
@@ -98,7 +91,7 @@ export const editProfileRequest = () => {
   };
 };
 
-export const editProfileSuccess = (newProfile) => {
+export const editProfileSuccess = newProfile => {
   return {
     type: EDIT_PROFILE_SUCCESS,
     avatar: newProfile.avatar,
@@ -108,7 +101,7 @@ export const editProfileSuccess = (newProfile) => {
   };
 };
 
-export const editProfileFailure = (error) => {
+export const editProfileFailure = error => {
   return {
     type: EDIT_PROFILE_FAILURE,
     error

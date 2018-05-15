@@ -2,7 +2,7 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const users = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_USERS_REQUEST:
       return {
         ...state,

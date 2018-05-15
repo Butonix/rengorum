@@ -2,7 +2,7 @@ import {
   FETCH_USER_PROFILE_REQUEST,
   FETCH_USER_PROFILE_SUCCESS,
   FETCH_USER_PROFILE_FAILURE
-} from '../actions/types';
+} from "../actions/types";
 
 const initialState = {
   isLoading: false,
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const userProfile = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_USER_PROFILE_REQUEST:
       return {
         ...state,

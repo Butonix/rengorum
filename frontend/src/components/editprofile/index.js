@@ -1,35 +1,28 @@
-import React, { Component } from 'react';
-import Dropzone from 'react-dropzone';
+import React, { Component } from "react";
+import Dropzone from "react-dropzone";
 import {
   Form,
   Image,
   Message,
   Button,
   TextArea,
-  Grid,
-} from 'semantic-ui-react';
-import {
-  imageUploadApi
-} from '../../api/image';
-import StatusMessage from '../../components/statusmessage';
-import './styles.css';
+  Grid
+} from "semantic-ui-react";
+import { imageUploadApi } from "../../api/image";
+import StatusMessage from "../../components/statusmessage";
+import "./styles.css";
 
 export default class EditProfile extends Component {
   constructor(props) {
     super(props);
-    const {
-      name,
-      avatar,
-      bio,
-      status
-    } = this.props;
+    const { name, avatar, bio, status } = this.props;
 
     this.state = {
       name: name,
-      newPassword: '',
-      currentPassword: '',
-      bio: bio || 'No bio',
-      status: status || 'Member',
+      newPassword: "",
+      currentPassword: "",
+      bio: bio || "No bio",
+      status: status || "Member",
       avatar: avatar,
       avatarFile: null,
       avatarError: null,
@@ -38,14 +31,14 @@ export default class EditProfile extends Component {
   }
 
   handleChange = (e, { name, value }) => {
-    this.setState({ [name]: value })
-  }
+    this.setState({ [name]: value });
+  };
 
-  onImageDrop = (files) => {
+  onImageDrop = files => {
     this.setState({
-      avatarFile: files[0],
+      avatarFile: files[0]
     });
-  }
+  };
 
   editProfile = () => {
     let newProfile = {
@@ -57,28 +50,24 @@ export default class EditProfile extends Component {
       status: this.state.status
     };
     this.props.handleEdit(newProfile);
-  }
+  };
 
   isFormValid = () => {
-    const {
-      name,
-      currentPassword,
-      bio,
-      status
-    } = this.state;
+    const { name, currentPassword, bio, status } = this.state;
 
     let isFormValid = true;
     if (!name || !currentPassword || !bio || !status) {
       isFormValid = false;
     }
     return isFormValid;
-  }
+  };
 
   handleSubmit = () => {
     const { avatarFile } = this.state;
 
     if (this.isFormValid()) {
-      if (!avatarFile) { // no new avatar
+      if (!avatarFile) {
+        // no new avatar
         this.editProfile();
       } else {
         this.setState({
@@ -86,30 +75,27 @@ export default class EditProfile extends Component {
         });
 
         imageUploadApi(avatarFile)
-        .then(response => {
-          this.setState({
-            avatar: response.data.secure_url,
-            avatarUploading: false
+          .then(response => {
+            this.setState({
+              avatar: response.data.secure_url,
+              avatarUploading: false
+            });
+            this.editProfile();
+          })
+          .catch(error => {
+            console.log(error);
+            this.setState({
+              avatarError: "Image Upload Error",
+              avatarFile: null,
+              avatarUploading: false
+            });
           });
-          this.editProfile();
-        }).catch(error => {
-          console.log(error);
-          this.setState({
-            avatarError: 'Image Upload Error',
-            avatarFile: null,
-            avatarUploading: false
-          });
-        });
       }
     }
-  }
+  };
 
   render() {
-    let {
-      isLoading,
-      error,
-      success
-    } = this.props;
+    let { isLoading, error, success } = this.props;
 
     let {
       name,
@@ -128,10 +114,10 @@ export default class EditProfile extends Component {
         error={error || avatarError}
         errorMessage={error || avatarError}
         loading={isLoading || avatarUploading}
-        loadingMessage={'Editing your profile'}
+        loadingMessage={"Editing your profile"}
         success={success}
-        successMessage={'Your profile edit was successful'}
-        type='modal'
+        successMessage={"Your profile edit was successful"}
+        type="modal"
       />
     );
     const avatarURL = avatarFile ? avatarFile.preview : avatar;
@@ -140,11 +126,11 @@ export default class EditProfile extends Component {
       <div>
         <Message
           attached
-          header='Edit Your Profile'
-          content='Fill out any part of the form below to edit your profile'
+          header="Edit Your Profile"
+          content="Fill out any part of the form below to edit your profile"
         />
         {statusMessage}
-        <Form className='attached segment'>
+        <Form className="attached segment">
           <Grid celled columns={2}>
             <Grid.Column>
               <Form.Field>
@@ -154,64 +140,63 @@ export default class EditProfile extends Component {
                   multiple={false}
                   accept="image/*"
                 >
-                  <Image
-                    src={avatarURL}
-                    className='editProfile-avatar'
-                  />
+                  <Image src={avatarURL} className="editProfile-avatar" />
                 </Dropzone>
               </Form.Field>
               <Form.Input
                 required
-                label='Bio'
-                placeholder='Describe yourself'
-                type='text'
-                name='bio'
+                label="Bio"
+                placeholder="Describe yourself"
+                type="text"
+                name="bio"
                 control={TextArea}
-                value={ bio }
-                onChange={ this.handleChange }
+                value={bio}
+                onChange={this.handleChange}
               />
             </Grid.Column>
             <Grid.Column>
               <Form.Input
                 required
-                label='Name'
-                placeholder='Name'
-                type='text'
-                name='name'
-                value={ name }
-                onChange={ this.handleChange }
+                label="Name"
+                placeholder="Name"
+                type="text"
+                name="name"
+                value={name}
+                onChange={this.handleChange}
               />
               <Form.Input
                 required
-                label='Current Password'
-                type='password'
-                name='currentPassword'
-                value={ currentPassword }
-                onChange={ this.handleChange }
+                label="Current Password"
+                type="password"
+                name="currentPassword"
+                value={currentPassword}
+                onChange={this.handleChange}
               />
               <Form.Input
-                label='New Password'
-                type='password'
-                name='newPassword'
-                value={ newPassword }
-                onChange={ this.handleChange }
+                label="New Password"
+                type="password"
+                name="newPassword"
+                value={newPassword}
+                onChange={this.handleChange}
               />
               <Form.Input
                 required
-                label='Status'
-                placeholder='Who are you (e.g: Writer)'
-                type='text'
-                name='status'
-                value={ status }
-                onChange={ this.handleChange }
+                label="Status"
+                placeholder="Who are you (e.g: Writer)"
+                type="text"
+                name="status"
+                value={status}
+                onChange={this.handleChange}
               />
             </Grid.Column>
           </Grid>
           <Button
-            color='blue'
+            color="blue"
             loading={isLoading}
             disabled={isLoading}
-            onClick={ this.handleSubmit }>Submit
+            onClick={this.handleSubmit}
+          >
+            Submit
           </Button>
         </Form>
       </div>

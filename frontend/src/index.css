@@ -12,13 +12,13 @@
   z-index: -1;
 }
 
-a:-webkit-any-link{
-  text-decoration:none;
+a:-webkit-any-link {
+  text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-a:-webkit-any-link:hover{
-  text-decoration:underline;
+a:-webkit-any-link:hover {
+  text-decoration: underline;
   color: white;
 }

@@ -7,7 +7,7 @@
   height: 100%;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, .65);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .modal-dialog-div .modal-header-div {
@@ -35,8 +35,8 @@
   vertical-align: middle;
   display: inline-block;
   height: 100%;
-  margin-left: -.05em;
-  content: '';
+  margin-left: -0.05em;
+  content: "";
 }
 
 .modal-close-div {
@@ -46,7 +46,6 @@
   z-index: 10100;
   padding: 4px;
 }
-
 
 .modal-dialog-div {
   position: relative;

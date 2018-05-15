@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   createPost,
   fetchThread,
   deletePost,
   deleteThread
-} from '../../actions';
-import Thread from '../../components/thread';
+} from "../../actions";
+import Thread from "../../components/thread";
 
 class ThreadContainer extends Component {
   componentDidMount() {
@@ -74,7 +74,7 @@ class ThreadContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isLoading: state.thread.isLoading,
   name: state.thread.name,
   content: state.thread.content,
@@ -94,22 +94,19 @@ const mapStateToProps = (state) => ({
   deleteError: state.thread.deleteError
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchThread: (thread) => {
+const mapDispatchToProps = dispatch => ({
+  fetchThread: thread => {
     dispatch(fetchThread(thread));
   },
-  createPost: (newPost) => {
+  createPost: newPost => {
     dispatch(createPost(newPost));
   },
   deletePost: (id, threadID) => {
     dispatch(deletePost(id, threadID));
   },
-  deleteThread: (id) => {
+  deleteThread: id => {
     dispatch(deleteThread(id));
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ThreadContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ThreadContainer);

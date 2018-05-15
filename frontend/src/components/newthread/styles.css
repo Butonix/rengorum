@@ -17,7 +17,7 @@
   margin-bottom: 5px;
 }
 
-.newThread-none {;
+.newThread-none {
   margin-top: 40px;
 }
 
@@ -26,18 +26,18 @@
   margin-left: auto;
   margin-right: auto;
   width: 33%;
-  color: rgba(231, 76, 60,1.0);
+  color: rgba(231, 76, 60, 1);
   text-align: center;
 }
 
-.newThread-message a:-webkit-any-link{
-  text-decoration:none;
+.newThread-message a:-webkit-any-link {
+  text-decoration: none;
   cursor: pointer;
   color: green;
 }
 
-.newThread-message a:-webkit-any-link:hover{
-  text-decoration:underline;
+.newThread-message a:-webkit-any-link:hover {
+  text-decoration: underline;
 }
 
 .newThread-wrapper {
@@ -71,6 +71,6 @@
   min-height: 100px;
 }
 
-.newThread-editor a{
+.newThread-editor a {
   color: blue;
 }
